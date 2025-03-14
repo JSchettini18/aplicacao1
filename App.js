@@ -47,10 +47,9 @@ const App = () => {
       <Text style={styles.title}>Catálogo de Tecnologias Emergentes</Text>
       {selectedTech ? (
         <View style={styles.detailsContainer}>
+          <Image source={{ uri: selectedTech.image }} style={styles.largeImage} />
           <Text style={styles.name}>{selectedTech.name}</Text>
           <Text style={styles.description}>{selectedTech.details}</Text>
-          <Image source={{ uri:selectedTech.image }} style={styles.largeImage} />
-
           <TouchableOpacity onPress={() => setSelectedTech(null)} style={styles.backButton}>
             <Text style={styles.backButtonText}>Voltar</Text>
           </TouchableOpacity>
@@ -63,7 +62,6 @@ const App = () => {
             <View style={styles.card}>
               <Image source={{ uri: item.image }} style={styles.image} />
               <View style={styles.textContainer}>
-                
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.description}>{item.description}</Text>
                 <TouchableOpacity onPress={() => setSelectedTech(item)} style={styles.detailsButton}>
@@ -104,6 +102,12 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 150,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  largeImage: {
+    width: '100%',
+    height: 250,
     borderRadius: 10,
     marginBottom: 10,
   },
